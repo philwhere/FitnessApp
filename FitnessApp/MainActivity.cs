@@ -40,10 +40,10 @@ namespace FitnessApp
 
         private void EnsureDatabaseCreated()
         {
-            if (true/*!File.Exists(Shortcuts.DatabaseFile)*/)
+            if (!File.Exists(Shortcuts.ReadOnlyDatabaseFile))
             {
                 var dbStream = Assets.Open(Constants.FitnessAppDbName); // DATA FILE RESOURCE ID
-                var writeStream = new FileStream(Shortcuts.DatabaseFile, FileMode.OpenOrCreate, FileAccess.Write);
+                var writeStream = new FileStream(Shortcuts.ReadOnlyDatabaseFile, FileMode.OpenOrCreate, FileAccess.Write);
                 Common.ReadWriteStream(dbStream, writeStream);
             }
         }

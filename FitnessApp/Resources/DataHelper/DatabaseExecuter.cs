@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Android.Util;
 using FitnessApp.Resources.Model;
 using SQLite;
-using static FitnessApp.Resources.Constants;
 using static FitnessApp.Resources.Shortcuts;
 
 namespace FitnessApp.Resources.DataHelper
@@ -16,8 +13,10 @@ namespace FitnessApp.Resources.DataHelper
         //{
         //    try
         //    {
-        //        using (var connection = new SQLiteConnection(Path.Combine(Folder, FitnessAppDbName)))
+        //        using (var connection = new SQLiteConnection(PersonalDatabaseFile))
+        //        {
         //            connection.CreateTable<Program>();
+        //        }
         //        return true;
         //    }
         //    catch (SQLiteException ex)
@@ -31,7 +30,7 @@ namespace FitnessApp.Resources.DataHelper
         {
             try
             {
-                using (var connection = new SQLiteConnection(DatabaseFile))
+                using (var connection = new SQLiteConnection(ReadOnlyDatabaseFile))
                     return connection.Table<Program>().ToList();
             }
             catch (SQLiteException ex)
@@ -45,7 +44,7 @@ namespace FitnessApp.Resources.DataHelper
         {
             try
             {
-                using (var connection = new SQLiteConnection(DatabaseFile))
+                using (var connection = new SQLiteConnection(ReadOnlyDatabaseFile))
                     return connection.Table<Exercise>().ToList();
             }
             catch (SQLiteException ex)
@@ -59,7 +58,7 @@ namespace FitnessApp.Resources.DataHelper
         {
             try
             {
-                using (var connection = new SQLiteConnection(DatabaseFile))
+                using (var connection = new SQLiteConnection(ReadOnlyDatabaseFile))
                     return connection.Table<Program>()
                         .Where(p => p.Id == id)
                         .ToList();
@@ -75,7 +74,7 @@ namespace FitnessApp.Resources.DataHelper
         {
             try
             {
-                using (var connection = new SQLiteConnection(DatabaseFile))
+                using (var connection = new SQLiteConnection(ReadOnlyDatabaseFile))
                 {
                     //var exercises = connection.Table<Exercise>()
                     //    .AsEnumerable()

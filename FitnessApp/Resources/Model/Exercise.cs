@@ -9,6 +9,6 @@
         public string RestTime { get; set; }
         public byte[] Photo { get; set; }
         public string Description { get; set; }
-        public bool Superset { get; set; }
+        public bool IsSuperset { get; set; }
     }
 }

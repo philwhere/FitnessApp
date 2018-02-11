@@ -78,6 +78,7 @@
     <Compile Include="Resources\DataHelper\ExerciseListViewAdapter.cs" />
     <Compile Include="Resources\DataHelper\ProgramListViewAdapter.cs" />
     <Compile Include="Resources\DataHelper\DatabaseExecuter.cs" />
+    <Compile Include="Resources\Extensions\IoExtenstions.cs" />
     <Compile Include="Resources\Model\Exercise.cs" />
     <Compile Include="Resources\Model\Program.cs" />
     <Compile Include="Resources\Model\ProgramExercise.cs" />
@@ -108,13 +109,15 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
     <Folder Include="Resources\mipmap-hdpi\" />
     <Folder Include="Resources\mipmap-mdpi\" />
     <Folder Include="Resources\mipmap-xhdpi\" />
     <Folder Include="Resources\mipmap-xxhdpi\" />
     <Folder Include="Resources\mipmap-xxxhdpi\" />
     <Folder Include="Resources\Raw\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -25,7 +25,6 @@ namespace FitnessApp.Resources
         }
 
         public const string FitnessAppDbName = "FitnessApp.db";
-
-
+        public const string LocalDbName = "FitnessHistory.db";
     }
 }
