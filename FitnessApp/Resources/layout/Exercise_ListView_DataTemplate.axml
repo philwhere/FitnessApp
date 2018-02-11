@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:gridSpec="1|8|#0093eeff|K:#ee8700ff:16,l:72,l:16,r|S:#83ee00ff:16,0,l:16,56,l:16,0,r"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+    <TextView
+        android:text="Exercise Name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exerciseName"
+        android:paddingLeft="10dp" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="183.5dp"
+        android:id="@+id/exerciseImage"
+        android:layout_marginBottom="0.0dp"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp" />
+    <TextView
+        android:text="Recommended Sets: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exerciseSets"
+        android:paddingLeft="10dp" />
+    <TextView
+        android:text="Recommended Reps: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/exerciseReps"
+        android:paddingLeft="10dp" />
+    <TextView
+        android:text="Superset"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/exerciseSuperset"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:paddingLeft="10dp"
+        android:enabled="true" />
+</LinearLayout>

@@ -41,11 +41,51 @@ namespace FitnessApp
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f040001
+			public const int exerciseImage = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int exerciseName = 2130968576;
+			
+			// aapt resource value: 0x7f040003
+			public const int exerciseReps = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int exerciseSets = 2130968578;
+			
+			// aapt resource value: 0x7f040004
+			public const int exerciseSuperset = 2130968580;
+			
+			// aapt resource value: 0x7f040006
+			public const int fitnessProgramListView = 2130968582;
+			
+			// aapt resource value: 0x7f040005
+			public const int programNameTextView = 2130968581;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Main = 2130837504;
+			public const int Exercise_ListView_DataTemplate = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int FitnessProgram_ListView_DataTemplate = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Main = 2130837506;
 			
 			static Layout()
 			{
