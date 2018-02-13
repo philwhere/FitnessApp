@@ -72,6 +72,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exercises.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Constants.cs" />
     <Compile Include="Resources\DataHelper\Common.cs" />
@@ -99,6 +100,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AndroidAsset>
     <AndroidResource Include="Resources\layout\Exercise_ListView_DataTemplate.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Exercises.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

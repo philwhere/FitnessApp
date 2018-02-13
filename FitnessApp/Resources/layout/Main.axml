@@ -3,10 +3,22 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
+    <Button
+		android:tag="1"
+        android:text="Program 1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fitnessProgramListView" />
+        android:layout_height="wrap_content"
+        android:id="@+id/program1" />
+    <Button
+		android:tag="2"
+        android:text="Program 2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/program2" />
+    <Button
+		android:tag="3"
+        android:text="Program 3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/program3" />
 </LinearLayout>

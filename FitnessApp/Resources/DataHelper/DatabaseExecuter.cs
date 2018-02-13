@@ -7,7 +7,7 @@ using static FitnessApp.Resources.Shortcuts;
 
 namespace FitnessApp.Resources.DataHelper
 {
-    public class DatabaseExecuter
+    public static class DatabaseExecuter
     {
         //public bool CreateDatabase()
         //{
@@ -26,7 +26,7 @@ namespace FitnessApp.Resources.DataHelper
         //    }
         //}
 
-        public List<Program> GetFitnessPrograms()
+        public static List<Program> GetPrograms()
         {
             try
             {
@@ -40,7 +40,7 @@ namespace FitnessApp.Resources.DataHelper
             }
         }
 
-        public List<Exercise> GetAllExercises()
+        public static List<Exercise> GetAllExercises()
         {
             try
             {
@@ -54,7 +54,7 @@ namespace FitnessApp.Resources.DataHelper
             }
         }
 
-        public List<Program> GetFitnessProgram(int id)
+        public static List<Program> GetProgram(int id)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace FitnessApp.Resources.DataHelper
             }
         }
 
-        public List<Exercise> GetProgramExercises(int programId)
+        public static List<Exercise> GetProgramExercises(int programId)
         {
             try
             {
