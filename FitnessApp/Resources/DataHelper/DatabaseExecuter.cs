@@ -26,6 +26,20 @@ namespace FitnessApp.Resources.DataHelper
         //    }
         //}
 
+        public static int GetLatestExerciseId()
+        {
+            try
+            {
+                using (var connection = new SQLiteConnection(ReadOnlyDatabaseFile))
+                    return connection.Table<Exercise>().Last().Id;
+            }
+            catch (SQLiteException ex)
+            {
+                Handle(ex);
+                return 0;
+            }
+        }
+
         public static List<Program> GetPrograms()
         {
             try

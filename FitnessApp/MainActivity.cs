@@ -15,9 +15,9 @@ namespace FitnessApp
     [Activity(Label = "FitnessApp", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        private Button Button1 => FindViewById<Button>(Resource.Id.program1);
-        private Button Button2 => FindViewById<Button>(Resource.Id.program2);
-        private Button Button3 => FindViewById<Button>(Resource.Id.program3);
+        private static int LatestExerciseId => 15; // Leg Press
+        private List<Button> Buttons { get; } = new List<Button>();
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -26,28 +26,39 @@ namespace FitnessApp
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             EnsureDatabaseCreated();
+            EnsureDatabaseUpdated();
 
-            LoadProgramNames();
-            Button1.Click += ButtonOnClick;
-            Button2.Click += ButtonOnClick;
-            Button3.Click += ButtonOnClick;
+            RegisterButtons();
+            HandleButtonClick();
+            SetProgramNames();
         }
 
+        private void HandleButtonClick() => Buttons.ForEach(b => b.Click += ShowExercises);
 
-        private void LoadProgramNames()
+        private void RegisterButtons() => AddButtonsToList(
+            Resource.Id.program1,
+            Resource.Id.program2,
+            Resource.Id.program3);
+
+        private void SetProgramNames()
         {
             var programs = DatabaseExecuter.GetPrograms();
-            Button1.Text = GetButtonText(programs, Button1);
-            Button2.Text = GetButtonText(programs, Button2);
-            Button3.Text = GetButtonText(programs, Button3);
+            Buttons.ForEach(b => b.Text = GetButtonText(programs, b));
         }
 
-        private static string GetButtonText(List<Program> programs, Button button) 
+        private void AddButtonsToList(params int[] resourceIds)
+        {
+            foreach (var id in resourceIds)
+                Buttons.Add(FindViewById<Button>(id));
+        }
+
+        private static string GetButtonText(List<Program> programs, Button button)
             => programs.First(p => $"{p.Id}" == $"{button.Tag}").Name;
 
-        private void ButtonOnClick(object sender, EventArgs eventArgs)
+
+        private void ShowExercises(object sender, EventArgs eventArgs)
         {
-            var button = (Button)sender;
+            var button = (Button) sender;
             var programId = ExtractProgramId(button);
             GoToExercises(programId);
         }
@@ -63,15 +74,22 @@ namespace FitnessApp
 
         private void EnsureDatabaseCreated()
         {
-            var dbStream = Assets.Open(Constants.FitnessAppDbName);
-            if (!File.Exists(Shortcuts.ReadOnlyDatabaseFile) || !IsLatestDb)
-            {
-                var writeStream = new FileStream(Shortcuts.ReadOnlyDatabaseFile, FileMode.OpenOrCreate, FileAccess.Write);
-                Common.ReadWriteStream(dbStream, writeStream);
-            }
+            if (!File.Exists(Shortcuts.ReadOnlyDatabaseFile))
+                CopyDb();
         }
 
-        private static bool IsLatestDb => false;
+        private void EnsureDatabaseUpdated()
+        {
+            var latestExerciseId = DatabaseExecuter.GetLatestExerciseId();
+            if (latestExerciseId != LatestExerciseId)
+                CopyDb();
+        }
+
+        private void CopyDb()
+        {
+            var dbStream = Assets.Open(Constants.FitnessAppDbName);
+            var writeStream = new FileStream(Shortcuts.ReadOnlyDatabaseFile, FileMode.OpenOrCreate, FileAccess.Write);
+            Common.ReadWriteStream(dbStream, writeStream);
+        }
     }
 }
-
