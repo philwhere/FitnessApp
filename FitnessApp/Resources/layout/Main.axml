@@ -2,23 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
     <Button
-		android:tag="1"
+        android:tag="1"
         android:text="Program 1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/program1" />
+        android:layout_height="100dp"
+        android:id="@+id/program1"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="75dp" />
     <Button
-		android:tag="2"
+        android:tag="2"
         android:text="Program 2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/program2" />
+        android:layout_height="100dp"
+        android:id="@+id/program2"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="20dp" />
     <Button
-		android:tag="3"
+        android:tag="3"
         android:text="Program 3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/program3" />
+        android:layout_height="100dp"
+        android:id="@+id/program3"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="20dp" />
 </LinearLayout>

@@ -15,7 +15,7 @@ namespace FitnessApp
     [Activity(Label = "FitnessApp", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        private static int LatestExerciseId => 15; // Leg Press
+        private static int LatestExerciseId => 21; // Leg Press
         private List<Button> Buttons { get; } = new List<Button>();
 
 
